@@ -1,0 +1,382 @@
+<!DOCTYPE html><html lang="pt-BR"><head><meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' data: blob: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://code.jquery.com https://unpkg.com https://d3js.org https://threejs.org https://cdn.plot.ly https://stackpath.bootstrapcdn.com https://maps.googleapis.com https://cdn.tailwindcss.com https://ajax.googleapis.com https://kit.fontawesome.com https://cdn.datatables.net https://maxcdn.bootstrapcdn.com https://code.highcharts.com https://tako-static-assets-production.s3.amazonaws.com https://www.youtube.com https://fonts.googleapis.com https://fonts.gstatic.com https://pfst.cf2.poecdn.net https://puc.poecdn.net https://i.imgur.com https://wikimedia.org https://*.icons8.com https://*.giphy.com https://picsum.photos https://images.unsplash.com; frame-src 'self' https://www.youtube.com https://trytako.com; child-src 'self'; manifest-src 'self'; worker-src 'self'; upgrade-insecure-requests; block-all-mixed-content;">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Top 2025</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#5D5CDE',
+                        'primary-dark': '#4A49B5',
+                        'primary-light': '#7D7CE7',
+                        dark: {
+                            100: '#333333',
+                            200: '#252525',
+                            300: '#181818',
+                        },
+                    },
+                    boxShadow: {
+                        'calc': '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
+                        'calc-dark': '0 4px 6px -1px rgba(0, 0, 0, 0.2), 0 2px 4px -1px rgba(0, 0, 0, 0.15)',
+                        'button': '0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)',
+                        'button-hover': '0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .calculator-button {
+            transition: all 0.1s ease;
+        }
+        
+        .calculator-button:active {
+            transform: scale(0.95);
+        }
+        
+        /* Avoid zoom on mobile when focusing input */
+        input[type="text"] {
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 dark:bg-dark-300 min-h-screen flex flex-col items-center justify-center p-4 font-sans">
+    <div class="max-w-xs w-full bg-white dark:bg-dark-200 rounded-2xl overflow-hidden shadow-calc dark:shadow-calc-dark">
+        <div class="p-4 bg-primary dark:bg-primary-dark text-white flex justify-between items-center">
+            <h1 class="text-xl font-bold">Calculadora Top 2025</h1>
+            <span class="text-xs opacity-80">por gnu23</span>
+        </div>
+        
+        <div class="p-4">
+            <input type="text" id="display" class="w-full text-right text-2xl p-3 mb-3 bg-gray-50 dark:bg-dark-100 border border-gray-200 dark:border-dark-300 rounded-lg dark:text-white" readonly="">
+            
+            <!-- Memory Display -->
+            <div class="flex justify-between text-xs text-gray-500 dark:text-gray-400 mb-2 px-1">
+                <span id="memory-display" class="font-mono">M: 0</span>
+                <span id="operation-display" class="font-mono"></span>
+            </div>
+            
+            <!-- Button Grid -->
+            <div class="grid grid-cols-4 gap-2">
+                <!-- Row 1 -->
+                <button class="calculator-button bg-gray-200 dark:bg-dark-100 py-3 rounded-lg font-medium text-lg text-gray-700 dark:text-gray-300 shadow-button hover:shadow-button-hover" data-action="clear">C</button>
+                <button class="calculator-button bg-gray-200 dark:bg-dark-100 py-3 rounded-lg font-medium text-lg text-gray-700 dark:text-gray-300 shadow-button hover:shadow-button-hover" data-action="negate">+/-</button>
+                <button class="calculator-button bg-gray-200 dark:bg-dark-100 py-3 rounded-lg font-medium text-lg text-gray-700 dark:text-gray-300 shadow-button hover:shadow-button-hover" data-action="percentage">%</button>
+                <button class="calculator-button bg-primary dark:bg-primary-dark py-3 rounded-lg font-medium text-lg text-white shadow-button hover:shadow-button-hover" data-operation="divide">÷</button>
+                
+                <!-- Row 2 -->
+                <button class="calculator-button bg-white dark:bg-dark-100 py-3 rounded-lg font-medium text-lg text-gray-800 dark:text-white shadow-button hover:shadow-button-hover" data-number="7">7</button>
+                <button class="calculator-button bg-white dark:bg-dark-100 py-3 rounded-lg font-medium text-lg text-gray-800 dark:text-white shadow-button hover:shadow-button-hover" data-number="8">8</button>
+                <button class="calculator-button bg-white dark:bg-dark-100 py-3 rounded-lg font-medium text-lg text-gray-800 dark:text-white shadow-button hover:shadow-button-hover" data-number="9">9</button>
+                <button class="calculator-button bg-primary dark:bg-primary-dark py-3 rounded-lg font-medium text-lg text-white shadow-button hover:shadow-button-hover" data-operation="multiply">×</button>
+                
+                <!-- Row 3 -->
+                <button class="calculator-button bg-white dark:bg-dark-100 py-3 rounded-lg font-medium text-lg text-gray-800 dark:text-white shadow-button hover:shadow-button-hover" data-number="4">4</button>
+                <button class="calculator-button bg-white dark:bg-dark-100 py-3 rounded-lg font-medium text-lg text-gray-800 dark:text-white shadow-button hover:shadow-button-hover" data-number="5">5</button>
+                <button class="calculator-button bg-white dark:bg-dark-100 py-3 rounded-lg font-medium text-lg text-gray-800 dark:text-white shadow-button hover:shadow-button-hover" data-number="6">6</button>
+                <button class="calculator-button bg-primary dark:bg-primary-dark py-3 rounded-lg font-medium text-lg text-white shadow-button hover:shadow-button-hover" data-operation="subtract">−</button>
+                
+                <!-- Row 4 -->
+                <button class="calculator-button bg-white dark:bg-dark-100 py-3 rounded-lg font-medium text-lg text-gray-800 dark:text-white shadow-button hover:shadow-button-hover" data-number="1">1</button>
+                <button class="calculator-button bg-white dark:bg-dark-100 py-3 rounded-lg font-medium text-lg text-gray-800 dark:text-white shadow-button hover:shadow-button-hover" data-number="2">2</button>
+                <button class="calculator-button bg-white dark:bg-dark-100 py-3 rounded-lg font-medium text-lg text-gray-800 dark:text-white shadow-button hover:shadow-button-hover" data-number="3">3</button>
+                <button class="calculator-button bg-primary dark:bg-primary-dark py-3 rounded-lg font-medium text-lg text-white shadow-button hover:shadow-button-hover" data-operation="add">+</button>
+                
+                <!-- Row 5 -->
+                <button class="calculator-button bg-white dark:bg-dark-100 py-3 rounded-lg font-medium text-lg text-gray-800 dark:text-white shadow-button hover:shadow-button-hover" data-action="memory-recall">MR</button>
+                <button class="calculator-button bg-white dark:bg-dark-100 py-3 rounded-lg font-medium text-lg text-gray-800 dark:text-white shadow-button hover:shadow-button-hover" data-number="0">0</button>
+                <button class="calculator-button bg-white dark:bg-dark-100 py-3 rounded-lg font-medium text-lg text-gray-800 dark:text-white shadow-button hover:shadow-button-hover" data-action="decimal">.</button>
+                <button class="calculator-button bg-primary-light dark:bg-primary py-3 rounded-lg font-medium text-lg text-white shadow-button hover:shadow-button-hover" data-action="calculate">=</button>
+                
+                <!-- Row 6 (Memory Functions) -->
+                <button class="calculator-button bg-gray-200 dark:bg-dark-100 py-2 rounded-lg font-medium text-sm text-gray-700 dark:text-gray-300 shadow-button hover:shadow-button-hover" data-action="memory-clear">MC</button>
+                <button class="calculator-button bg-gray-200 dark:bg-dark-100 py-2 rounded-lg font-medium text-sm text-gray-700 dark:text-gray-300 shadow-button hover:shadow-button-hover" data-action="memory-add">M+</button>
+                <button class="calculator-button bg-gray-200 dark:bg-dark-100 py-2 rounded-lg font-medium text-sm text-gray-700 dark:text-gray-300 shadow-button hover:shadow-button-hover" data-action="memory-subtract">M-</button>
+                <button class="calculator-button bg-gray-200 dark:bg-dark-100 py-2 rounded-lg font-medium text-sm text-gray-700 dark:text-gray-300 shadow-button hover:shadow-button-hover" data-action="backspace">⌫</button>
+            </div>
+        </div>
+        <div class="text-center text-xs text-gray-500 dark:text-gray-400 p-2 bg-gray-100 dark:bg-dark-100">
+            Criado por gnu23 © 2025/2026
+            telegram: https://t.me/gnu23
+        </div>
+    </div>
+    
+    <script>
+        // Dark mode detection
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+        
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+        
+        // Calculator logic
+        document.addEventListener('DOMContentLoaded', function() {
+            const display = document.getElementById('display');
+            const memoryDisplay = document.getElementById('memory-display');
+            const operationDisplay = document.getElementById('operation-display');
+            
+            let currentInput = '0';
+            let currentOperation = null;
+            let previousInput = null;
+            let memoryValue = 0;
+            let calculationPerformed = false;
+            
+            // Initialize display
+            display.value = currentInput;
+            
+            // Add click event listener to all buttons
+            document.querySelectorAll('.calculator-button').forEach(button => {
+                button.addEventListener('click', function() {
+                    // Handle number buttons
+                    if (this.hasAttribute('data-number')) {
+                        handleNumberInput(this.getAttribute('data-number'));
+                    }
+                    
+                    // Handle operations
+                    else if (this.hasAttribute('data-operation')) {
+                        handleOperation(this.getAttribute('data-operation'));
+                    }
+                    
+                    // Handle actions
+                    else if (this.hasAttribute('data-action')) {
+                        handleAction(this.getAttribute('data-action'));
+                    }
+                    
+                    // Update display
+                    display.value = formatDisplay(currentInput);
+                });
+            });
+            
+            // Add keyboard support
+            document.addEventListener('keydown', function(event) {
+                const key = event.key;
+                
+                // Numbers
+                if (/^[0-9]$/.test(key)) {
+                    handleNumberInput(key);
+                }
+                
+                // Operations
+                switch (key) {
+                    case '+':
+                        handleOperation('add');
+                        break;
+                    case '-':
+                        handleOperation('subtract');
+                        break;
+                    case '*':
+                        handleOperation('multiply');
+                        break;
+                    case '/':
+                        handleOperation('divide');
+                        event.preventDefault(); // Prevent browser's Find functionality
+                        break;
+                    case '%':
+                        handleAction('percentage');
+                        break;
+                    case '.':
+                    case ',':
+                        handleAction('decimal');
+                        break;
+                    case 'Enter':
+                    case '=':
+                        handleAction('calculate');
+                        break;
+                    case 'Escape':
+                        handleAction('clear');
+                        break;
+                    case 'Backspace':
+                        handleAction('backspace');
+                        break;
+                }
+                
+                // Update display
+                display.value = formatDisplay(currentInput);
+            });
+            
+            function handleNumberInput(number) {
+                // If we just performed a calculation, start with fresh input
+                if (calculationPerformed) {
+                    currentInput = number;
+                    calculationPerformed = false;
+                } 
+                // If the current input is just "0", replace it
+                else if (currentInput === '0') {
+                    currentInput = number;
+                } 
+                // Otherwise, append the number
+                else {
+                    currentInput += number;
+                }
+                
+                updateOperationDisplay();
+            }
+            
+            function handleOperation(operation) {
+                // If there's a pending operation, calculate it first
+                if (previousInput !== null && currentOperation !== null && !calculationPerformed) {
+                    calculate();
+                }
+                
+                // Set new operation
+                currentOperation = operation;
+                previousInput = currentInput;
+                calculationPerformed = true;
+                
+                updateOperationDisplay();
+            }
+            
+            function handleAction(action) {
+                switch (action) {
+                    case 'clear':
+                        currentInput = '0';
+                        previousInput = null;
+                        currentOperation = null;
+                        calculationPerformed = false;
+                        updateOperationDisplay();
+                        break;
+                        
+                    case 'calculate':
+                        if (previousInput !== null && currentOperation !== null) {
+                            calculate();
+                            previousInput = null;
+                            currentOperation = null;
+                            calculationPerformed = true;
+                            updateOperationDisplay();
+                        }
+                        break;
+                        
+                    case 'decimal':
+                        if (calculationPerformed) {
+                            currentInput = '0.';
+                            calculationPerformed = false;
+                        } else if (!currentInput.includes('.')) {
+                            currentInput += '.';
+                        }
+                        break;
+                        
+                    case 'percentage':
+                        currentInput = String(parseFloat(currentInput) / 100);
+                        break;
+                        
+                    case 'negate':
+                        currentInput = String(-parseFloat(currentInput));
+                        break;
+                        
+                    case 'backspace':
+                        if (calculationPerformed) {
+                            currentInput = '0';
+                            calculationPerformed = false;
+                        } else if (currentInput.length > 1) {
+                            currentInput = currentInput.slice(0, -1);
+                        } else {
+                            currentInput = '0';
+                        }
+                        break;
+                        
+                    case 'memory-clear':
+                        memoryValue = 0;
+                        updateMemoryDisplay();
+                        break;
+                        
+                    case 'memory-recall':
+                        currentInput = String(memoryValue);
+                        calculationPerformed = false;
+                        break;
+                        
+                    case 'memory-add':
+                        memoryValue += parseFloat(currentInput);
+                        updateMemoryDisplay();
+                        calculationPerformed = true;
+                        break;
+                        
+                    case 'memory-subtract':
+                        memoryValue -= parseFloat(currentInput);
+                        updateMemoryDisplay();
+                        calculationPerformed = true;
+                        break;
+                }
+            }
+            
+            function calculate() {
+                const prev = parseFloat(previousInput);
+                const current = parseFloat(currentInput);
+                let result = 0;
+                
+                switch (currentOperation) {
+                    case 'add':
+                        result = prev + current;
+                        break;
+                    case 'subtract':
+                        result = prev - current;
+                        break;
+                    case 'multiply':
+                        result = prev * current;
+                        break;
+                    case 'divide':
+                        if (current === 0) {
+                            currentInput = "Erro";
+                            return;
+                        }
+                        result = prev / current;
+                        break;
+                }
+                
+                // Format result to avoid excessive decimal places
+                if (Number.isInteger(result)) {
+                    currentInput = String(result);
+                } else {
+                    // Limit decimal places for readability
+                    const resultString = result.toString();
+                    if (resultString.includes('.') && resultString.split('.')[1].length > 8) {
+                        currentInput = result.toFixed(8).replace(/\.?0+$/, '');
+                    } else {
+                        currentInput = resultString;
+                    }
+                }
+            }
+            
+            function formatDisplay(value) {
+                if (value === "Erro") return value;
+                
+                // For large numbers, use scientific notation
+                const num = parseFloat(value);
+                if (Math.abs(num) >= 1e12 || (Math.abs(num) < 1e-7 && num !== 0)) {
+                    return num.toExponential(6);
+                }
+                
+                return value;
+            }
+            
+            function updateMemoryDisplay() {
+                memoryDisplay.textContent = `M: ${memoryValue}`;
+            }
+            
+            function updateOperationDisplay() {
+                if (currentOperation && previousInput) {
+                    let symbol;
+                    switch (currentOperation) {
+                        case 'add': symbol = '+'; break;
+                        case 'subtract': symbol = '−'; break;
+                        case 'multiply': symbol = '×'; break;
+                        case 'divide': symbol = '÷'; break;
+                    }
+                    operationDisplay.textContent = `${previousInput} ${symbol}`;
+                } else {
+                    operationDisplay.textContent = '';
+                }
+            }
+        });
+    </script>
+
+
+</body></html>
